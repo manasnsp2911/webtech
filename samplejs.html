@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   <div class='head'>
+        ITEM LISTER
+        <!-- <input class='search' type="text" placeholder="search items"> -->
+    </div>
+
+    <div class='section'>
+        <h3>Add items</h3>
+        <input type="text" id="inpt">
+        <button id="abtn">Submit</button>
+        <button id="abtn">Reverse</button>
+
+        <h3>Items</h3>
+        <ul class="list">
+            <li class=items>your name<button class="list-btn">X</button></li>
+            <li class=items>friends name<button class="list-btn">X</button></li>
+            <li class=items>best friends name<button class="list-btn">X</button></li>
+            <li class=items>4<button class="list-btn">X</button></li>
+        </ul>
+
+    </div>
+
+
+
+</body>
+
+
+
+<script>
+
+
+    let mylist = document.getElementsByTagName('ul');
+    console.log(mylist[0].childElementCount)
+    let ai = document.getElementById('inpt');
+    let ab = document.getElementById('abtn');
+    let ullist = document.querySelector('.list');
+
+
+    ab.addEventListener('click', add);
+
+    function add() {
+        let ct = document.createElement('li');
+        ct.setAttribute("class", "items");
+        let ctn = document.createTextNode(ai.value)
+        ct.appendChild(ctn);
+        let bt = document.createElement('button');
+        bt.setAttribute("class", "list-btn");
+        let btn = document.createTextNode('X');
+        bt.appendChild(btn);
+        ct.appendChild(bt);
+        ullist.appendChild(ct);
+        ai.value = null
+    }
+
+
+
+    ullist.addEventListener('click', fdelete)
+
+    function fdelete(t) {
+
+        if (t.target.textContent == 'X')
+            t.target.parentElement.style.display = 'none'
+
+    }
+
+
+    let srch = document.querySelector('.search');
+
+
+    srch.addEventListener('keyup', fsearch);
+
+
+
+
+
+
+    function fsearch(e) {
+        var text = e.target.value.toLowerCase();
+        var items = document.getElementsByTagName('li');
+        for (x of items) {
+            var i = x.textContent;
+            if (i.toLowerCase().indexOf(text) != -1) {
+                x.style.display = 'block';
+            }
+            else {
+                x.style.display = 'none';
+            }
+        }
+
+
+    }
+</script>
+
+</html>
