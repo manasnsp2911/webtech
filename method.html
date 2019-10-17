@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta chrset="UTF 8">
+    <title>Event Registration</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <h1> EXAMPLE</h1>
+
+
+
+    
+    <div ng-app="DemoApp" ng-controller="DemoController">
+        NUMBER1 :<input type="text" ng-model="num1"><br>
+        NUMBER2 :<input type="text" ng-model="num2" ng-init="x=0"><br>
+        <br>
+    
+         
+       x={{disp(num1,num2)}}
+        {{x}}
+    </div>
+
+    <script>
+        var app = angular.module('DemoApp', []);
+        app.controller('DemoController', function ($scope) {
+            $scope.tutorialName = "hello";
+            $scope.disp = function(x,y)
+            {
+                 return x*y;
+            };
+
+           
+        });
+    </script>
+</body>
+
+</html>

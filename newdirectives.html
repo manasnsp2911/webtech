@@ -1,0 +1,46 @@
+<!-- Create New Directives
+--------------------------
+
+In addition to all the built-in AngularJS directives, you can create your own directives.
+
+New directives are created by using the .directive function.
+
+To invoke the new directive, make an HTML element with the same tag name as the new directive.
+
+When naming a directive, you must use a camel case name, vitDirective, but when invoking it, you must use - separated name, vit-directive: -->
+
+<!DOCTYPE html>
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp">
+
+        
+     <vit-directive></vit-directive>
+     
+ </body>
+
+
+ <script>
+    var app = angular.module("myApp", []);
+    app.directive("vitDirective", function() {
+      return { 
+        template : "<h1>Made by the VIT directive!</h1>"
+      };
+    });
+  </script>
+
+
+</html>
+        
+
+<!-- You can invoke a directive by using:
+
+    Element name---- <vit-directive></vit-directive>
+    
+    Attribute------ <div vit-directive></div>
+ 
+    Class ----------- <div class="vit-directive"></div>
+    
+    Comment------ directive: vit-directive  restrict : "M", replace : true,
+-->

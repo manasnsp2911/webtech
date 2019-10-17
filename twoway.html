@@ -1,0 +1,86 @@
+<!-- Data binding in AngularJS is the synchronization between the model and the view. 
+
+    Data Model
+AngularJS applications usually have a data model. The data model is a collection of data available for the application.
+eg:
+
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+  $scope.firstname = "John";
+  $scope.lastname = "Doe";
+});
+
+-->
+
+<!-- HTML View
+
+The HTML container where the AngularJS application is displayed, is called the view.
+
+The view has access to the model, and there are several ways of displaying model data in the view.
+
+You can use the ng-bind directive, which will bind the innerHTML of the element to the specified model property: 
+
+eg
+ <p ng-bind="firstname"></p> 
+-->
+
+
+<!-- The ng-model Directive
+
+Use the ng-model directive to bind data from the model to the view on HTML controls (input, select, textarea) 
+eg:
+
+ <input ng-model="firstname"> 
+
+ The ng-model directive provides a two-way binding between the model and the view.
+-->
+
+
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+
+
+
+
+
+  <div ng-app="myApp" ng-controller="myCtrl">
+    Name: <input ng-model="firstname">
+    <h1>{{firstname}}</h1>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstname = "Jhony";
+    $scope.lastname = "Deep";
+   
+});
+</script>
+
+<!-- <p>Change the name inside the input field, and the model data will change automatically, and therefore also the header will change its value.</p> -->
+
+
+
+
+
+<!-- 
+<div ng-app="myApp2" ng-controller="myCtrl2">
+        <h1 ng-click="changeName()">{{firstname}}</h1>
+      </div>
+      
+      <script>
+      var app1 = angular.module('myApp2', []);
+      app1.controller('myCtrl2', function($scope) {
+        $scope.firstname = "RAM";
+        $scope.changeName = function() {
+          $scope.firstname = "RAVAN";
+        }
+      });
+      </script> -->
+      
+
+</body>
+</html>

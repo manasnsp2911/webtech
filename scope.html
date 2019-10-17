@@ -1,0 +1,58 @@
+<!-- The scope is the binding part between the HTML (view) and the JavaScript (controller).
+
+The scope is an object with the available properties and methods.
+
+The scope is available for both the view and the controller. -->
+
+<!-- 
+Root Scope
+
+All applications have a $rootScope which is the scope created on the HTML element that contains the ng-app directive.
+
+The rootScope is available in the entire application.
+
+If a variable has the same name in both the current scope and in the rootScope, the application uses the one in the current scope.  -->
+
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp">
+
+<p>The rootScope's favorite color:</p>
+<h1>{{color}}</h1>
+
+<div ng-controller="myCtrl1">
+
+<p>it will get red:</p>
+<h1>{{color}}</h1>
+
+</div>
+
+<div ng-controller="myCtrl2">
+<p>The scope of the controller's favorite color is now:</p>
+<h1>{{color}}</h1>
+</div>
+
+
+<p>The rootScope's favorite color is still:</p>
+<h1>{{color}}</h1> -->
+
+
+<script>
+var app = angular.module('myApp', []);
+app.run(function($rootScope) {
+    $rootScope.color = 'blue';
+});
+app.controller('myCtrl1', function($scope) {
+    $scope.color = "red";
+});
+
+app.controller('myCtrl2', function($scope) {
+    $scope.color = "green";
+});
+</script>
+
+<p>Notice that controller's color variable does not overwrite the rootScope's color value.</p>
+
+</body>
+</html>
